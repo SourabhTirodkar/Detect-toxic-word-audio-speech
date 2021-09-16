@@ -131,6 +131,6 @@ def main(filepath):
     return result, v, waveform
 
 
-if __name__ == '__main__':
-    # main()
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     # main()
+#     app.run(debug=True)
