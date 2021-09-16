@@ -1,0 +1,44 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<!--<div style="text-align: center;">-->
+<head>
+<link rel="stylesheet" href='/static/style.css' />
+        <title>Check Toxicity of the audio</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+</head>
+<body>
+<div style="text-align: center;">
+<H1>Toxic Word Detection</H1>
+
+<!--<img src="{{url_for('static', filename='Toxic_Positivity.png')}}" align="middle" />-->
+    <img src="{{ href1 }}" align="middle" height = '500' /><br><br>
+
+    <form method="POST">
+        <p style="color: darkred"> <H2>{{href2}} </H2></p>
+<!--        <p><a href="{{ url_for('music') }}">Verify by listening to audio!</a></p>-->
+        {% if href2 %}
+            <p><a href="{{ href3}}" >Verify by listening to audio!</a></p>
+        {% endif %}
+
+
+
+    <label for="file-upload" class="custom-file-upload">
+        Choose a audio file to check if its toxic or not :<br><br>
+    </label>
+    <input id="file-upload" name = 'file' type="file">
+    <br><br>
+    <input type="submit">
+        <br>
+<!--        <audio controls ='controls', autoplay="autoplay" src="/test_files/004ae714_nohash_0.wav">-->
+<!--&lt;!&ndash;            <source src='/test_files/004ae714_nohash_0.wav' >&ndash;&gt;-->
+<!--        </audio>-->
+</form>
+            <p><a href="{{ href4}}" >Manual Audio Testing</a></p>
+
+</div>
+<!--<p><a href="{{ url_for('music') }}">Check out this cool music!</a></p>-->
+</body>
+</div>
+</html>
