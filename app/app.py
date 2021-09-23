@@ -3,7 +3,7 @@ import os
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
-os.chdir('app')
+# os.chdir('app')
 app = Flask(__name__)
 
 
@@ -13,7 +13,7 @@ def index():
     request_type_str = request.method
 
     if request_type_str == 'GET':
-        return render_template('index.html', href1='static/images/Toxic_positivity.png', href4 = url_for('music'))
+        return render_template('index.html', href1='static/images/Toxic_Positivity.png', href4=url_for('music'))
     else:
         global file
         file = request.form['file']
@@ -22,9 +22,9 @@ def index():
         # print(str(file))
         # return redirect(url_for('music'))
         if value == 0 or value == 4:
-            return render_template('index.html', href1='static/images/positive.jfif', href2 ='Yes, it is Toxic word', href3= url_for('music2'), href4 = url_for('music'))
+            return render_template('index.html', href1='static/images/positive.jfif', href2='Yes, it is Toxic word', href3=url_for('music2'), href4 = url_for('music'))
         else:
-            return render_template('index.html', href1='static/images/negative.jpg', href2 ='No, it is not Toxic Word', href3= url_for('music2'), href4 = url_for('music'))
+            return render_template('index.html', href1='static/images/negative.jpg', href2='No, it is not Toxic Word', href3=url_for('music2'), href4 = url_for('music'))
 
 
         # return str(res)
@@ -38,12 +38,12 @@ def music():
         return render_template('music.html')
     else:
         file = request.form['file']
-        return render_template('music.html', href3='static/audio_files/' + str(file))
+        return render_template('music.html', href3='static/audio_files/' + str(file), href6=url_for('index'))
 
 
 @app.route("/music2", methods=['GET', 'POST'])
 def music2():
-    return render_template('music2.html', href3='static/audio_files/' + str(file), href5 ='static/spectrogram/file.png', href6 = url_for('index'))
+    return render_template('music2.html', href3='static/audio_files/' + str(file), href5='static/spectrogram/file.png', href6=url_for('index'))
 
 
 def evaluate_test(model, test_ds):
@@ -131,6 +131,7 @@ def main(filepath):
     return result, v, waveform
 
 
-# if __name__ == '__main__':
-#     # main()
-#     app.run(debug=True)
+if __name__ == '__main__':
+    # main()
+    # app.run(debug=True)
+    app.run(host="0.0.0.0", port=80)
